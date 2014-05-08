@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html data-ng-app="productsApp">
+<head>
+	<title>Products</title>
+
+    <!-- set up the base URL -->
+    <base href="/">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">    <!-- Optimize mobile viewport -->
+
+    <!-- css files -->
+    <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/signin.css">
+
+    <!-- Generic AngularJS source files -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.0-beta.3/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.0-beta.3/angular-route.min.js"></script>
+
+    <!-- Extra AngularJS files for this webapp -->
+    <script src="js/controllers/MainController.js"></script>
+    <script src="js/controllers/ProductController.js"></script>
+    <script src="js/services/ProductService.js"></script>
+    <script src="js/appRoutes.js"></script>
+    <script src="js/productsApp.js"></script>
+
+</head>
+<body>
+    <!-- HEADER -->
+    <nav class="navbar navbar-inverse">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">Home</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li><a href="/about">How to Use Products</a></li>
+        </ul>
+    </nav>
+
+	<div>
+		<!-- Place holder for views -->
+		<div data-ng-view=""></div>
+	</div>
+</body>
+</html>
