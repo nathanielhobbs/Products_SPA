@@ -42,7 +42,7 @@
 
         <!-- wrapping the table in .table-responsive will make them scroll horizontolly up to small devices (under 768px).-->
         <div class="table-responsive">
-            <table class="table table-hover" style="word-wrap: break-word">
+            <table class="table table-hover">
             <thead> 
                 <tr>
                 <th>Name</th>
@@ -54,7 +54,7 @@
             <tbody>
             <tr data-ng-repeat="product in products">
                 <td>{{ product.name }}</td>
-                <td style="word-wrap: break word max-width:400px">{{ product.description }}</td>
+                <td style="display:inline-block; word-wrap: break-all; max-width:400px">{{ product.description }}</td>
                 <td>{{ product.price }}</td>
                 <td><a href="{{product.imagePath}}"><img width="150px" src="{{ product.imagePath}}" alt=""/></a></td>
                 <td>
