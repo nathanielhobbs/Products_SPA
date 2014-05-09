@@ -5,8 +5,8 @@ var Schema   = mongoose.Schema;
 
 var ProductSchema = new Schema({ //Note: MongoDB will automatically generate an _id for each Product
     name: String,
-    description: String,
-    price: String,
+    description: { type: String, default: "n/a"},
+    price: { type: String, default: "n/a" },
     imagePath: String
 });
 

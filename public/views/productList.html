@@ -1,10 +1,7 @@
 <!-- public/views/productList.html -->
 <div>
     <div class="text-center">
-        <h3>In order to share this list, or find it in the future, please note your Product List's ID:</h3>
-        <h3>{{productListID}}</h3>
-        <p> (In order to navigate back to this list, just append it to the current URL,</p>
-        <p> (e.g. .../productList/{{productListID}})</p>
+        <p> (In order to navigate back to this list, use the following URL:  {{listURL}} </p>
         <br />
         <h1>Add/Remove products from your list</h1>
     </div>
@@ -15,7 +12,8 @@
             <div class="form-group" data-ng-class="{ 'has-error' : productForm.name.$invalid && !productForm.name.$pristine && newProductFormSubmitted }">
                 <label "col-sm2 control-lable">Name*</label>
                 <input type="text" name="name" class="form-control" placeholder="e.g. Desk lamp" data-ng-model="product.name" required>
-                <p ng-show="productForm.name.$invalid && !productForm.name.$pristine && newProductFormSubmitted" class="help-block">Product name is required.</p>
+                <p ng-show="productForm.name.$invalid  && newProductFormSubmitted" class="help-block">Product name is required.</p>
+                <p> {{productForm.name.$invalid}}  {{!productForm.name.$pristine}} {{ newProductFormSubmitted}}</p>
             </div>
 
             <!-- Product Description -->
@@ -33,7 +31,10 @@
             <!-- Product Image -->
             <div class="form-group">
                 <label>Image Path</label>
-                <input type="text" name="imagePath" class="form-control" placeholder="e.g. www.lightbulbs.com/incadecent.jpg" data-ng-model="product.imagePath">
+                <input type="url" name="imagePath" class="form-control" placeholder="e.g. http://www.lamps.com/lamp.jpg" data-ng-model="product.imagePath">
+                <span class="error" data-ng-show="productForm.imagePath.$error.url">
+                        <span style="color: #B00000">Not valid url!</span> Did you forget to add http:// ?
+                </span>
             </div>
             
             <!-- SUBMIT BUTTON -->
@@ -57,7 +58,7 @@
                 <td>{{ product.name }}</td>
                 <td>{{ product.description }}</td>
                 <td>{{ product.price }}</td>
-                <td>{{ product.imagePath}}</td>
+                <td><a href="{{product.imagePath}}"><img width="150px" src="{{ product.imagePath}}" alt=""/></a></td>
                 <td>
                     <a href="#/productList/{{ productListID }}" data-ng-click="deleteProduct(product)">delete</a>
                 </td>
