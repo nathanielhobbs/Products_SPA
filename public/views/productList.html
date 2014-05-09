@@ -59,7 +59,7 @@
                 <td>{{ product.price }}</td>
                 <td>{{ product.imagePath}}</td>
                 <td>
-                    <a href="#" data-ng-click="deleteProduct(product)">delete</a>
+                    <a href="#/productList/{{ productListID }}" data-ng-click="deleteProduct(product)">delete</a>
                 </td>
              </tr>
             </tbody>
