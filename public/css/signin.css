@@ -2,6 +2,23 @@ body {
   background-color: #eee;
 }
 
+table {
+ -ms-word-break: break-all;
+     word-break: break-all;
+
+     /* Non standard for webkit */
+     word-break: break-word;
+
+-webkit-hyphens: auto;
+   -moz-hyphens: auto;
+    -ms-hyphens: auto;
+        hyphens: auto;
+}
+
+td{
+    max-width: 100px;
+}
+
 .form-signin {
   max-width: 330px;
   padding: 15px;

@@ -54,7 +54,7 @@
             <tbody>
             <tr data-ng-repeat="product in products">
                 <td>{{ product.name }}</td>
-                <td style="display:inline-block; word-wrap: break-all; max-width:400px">{{ product.description }}</td>
+                <td style="max-width:100px">{{ product.description }}</td>
                 <td>{{ product.price }}</td>
                 <td><a href="{{product.imagePath}}"><img width="150px" src="{{ product.imagePath}}" alt=""/></a></td>
                 <td>
