@@ -65,7 +65,7 @@ productsApp.controller('ProductListController', function($scope, $http, $routePa
     if($routeParams.productListID){
         var productListID = $routeParams.productListID;
         $scope.productListID = productListID;
-        $scope.listURL = window.location.pathname;
+        $scope.listURL = document.URL;
         $http.get('/api/productList/'+productListID) //returns a productList with ID productListID
             .success(function(data) {
                 $scope.products = data.products;    // fill up scope.products, so that they can be displayed to the user
