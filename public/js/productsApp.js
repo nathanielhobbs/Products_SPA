@@ -34,6 +34,9 @@ productsApp.config(function($routeProvider, $locationProvider){
 });
 
 productsApp.controller('MainController', function($scope) {
+    // ensure that any time the user goes back home that they are not displayed the Add Item button
+    $scope.$emit('showButton', false);
+
     // if receive an emitted event to show the "Add Item" button, update scope accordingly
     $scope.$on('showButton',function(event, args) {
         $scope.showAddButton=args;
@@ -74,6 +77,9 @@ productsApp.service('currentListFactory', function() {
 });
 
 productsApp.controller('ProductListAddProductController', function($scope, $http, $location, currentListFactory){
+    // remove the Add Product buttton (inform the Main Controller that displays the menu)
+    $scope.$emit('showButton', false);
+
     var currentProductList = currentListFactory.getProductList();
     $scope.productListID = currentProductList._id;
     // Function to submit form after Angular's validation
