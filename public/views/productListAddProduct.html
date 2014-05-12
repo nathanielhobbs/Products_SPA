@@ -1,0 +1,42 @@
+<!-- public/views/productListAddProduct.html-->
+<div>    
+    <div class="text-center">
+        <h1>Add/Remove products from your list</h1>
+    </div>
+    <!-- Product List -->
+    <div class="col-sm-8 col-sm-offset-2">
+        <form class="form-horizontal" name="productForm" data-ng-submit="submitForm(productForm.$valid)" novalidate> <!-- novalidate prevents HTML5 validation since we will be validating ourselves -->
+            <!-- Product Name -->
+            <div class="form-group" data-ng-class="{ 'has-error' : productForm.name.$invalid && !productForm.name.$pristine && newProductFormSubmitted }">
+                <label "col-sm2 control-lable">Name*</label>
+                <input type="text" name="name" class="form-control" placeholder="e.g. Desk lamp" data-ng-model="product.name" required>
+                <p ng-show="productForm.name.$invalid  && newProductFormSubmitted" class="help-block">Product name is required.</p>
+            </div>
+
+            <!-- Product Description -->
+            <div class="form-group">
+                <label>Description</label>
+                <input type="text" name="description" class="form-control" placeholder="e.g. Perfect for helping your child slave away until the wee hours of the morning!" data-ng-model="product.description">
+            </div>
+
+            <!-- Product Price -->
+            <div class="form-group">
+                <label>Price</label>
+                <input type="text" name="price" class="form-control" placeholder="e.g. $100, 2500 RMB, £8, etc." data-ng-model="product.price">
+            </div>
+
+            <!-- Product Image -->
+            <div class="form-group">
+                <label>Image Path</label>
+                <input type="url" name="imagePath" class="form-control" placeholder="e.g. http://www.lamps.com/lamp.jpg" data-ng-model="product.imagePath">
+                <span class="error" data-ng-show="productForm.imagePath.$error.url">
+                        <span style="color: #B00000">Not valid url!</span> Did you forget to add http:// ?
+                </span>
+            </div>
+            
+            <!-- SUBMIT BUTTON -->
+            <button type="submit" class="btn btn-success">Confirm</button>
+            <!-- <button type="submit" class="btn btn-danger">Cancel</button> -->
+        </form>
+    </div>
+<div> 

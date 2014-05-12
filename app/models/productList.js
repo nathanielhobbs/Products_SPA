@@ -7,7 +7,7 @@ var ProductSchema = new Schema({ //Note: MongoDB will automatically generate an 
     name: String,
     description: { type: String, default: "n/a"},
     price: { type: String, default: "n/a" },
-    imagePath: String
+    imagePath: { type: String, default: "http://eb.sk/wp-content/themes/TechNews/images/img_not_available.png" }
 });
 
 var ProductListSchema   = new Schema({
