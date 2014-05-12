@@ -7,12 +7,12 @@
     <!-- Product List -->
     <div class="col-sm-8 col-sm-offset-2">
          <div>
-            <table style="width:100%; table-layout:fixed" class="table table-hover">
+            <table style="width:100%" class="table table-hover">
             <thead> 
             </thead>
             <tbody>
                 <tr data-ng-repeat="product in products">
-                    <td><a href="{{product.imagePath}}"><img width="150px" src="{{ product.imagePath}}" alt=""/></a></td>
+                    <td width="33%"><a href="{{product.imagePath}}"><img width="100%" src="{{ product.imagePath}}" alt=""/></a></td>
                     <td>
                         <p><span style="font-weight:bold">Name:</span> {{product.name}}</p>
                         <p><span style="font-weight:bold">Price:</span> {{product.price}}</p>
