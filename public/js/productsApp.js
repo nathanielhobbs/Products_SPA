@@ -33,10 +33,12 @@ productsApp.config(function($routeProvider, $locationProvider){
     $locationProvider.html5Mode(true);
 });
 
-productsApp.controller('MainController', ['$scope',
-    function($scope) {
-        $scope.tagline = 'Main controller';
-}]);
+productsApp.controller('MainController', function($scope) {
+    // if receive an emitted event to show the "Add Item" button, update scope accordingly
+    $scope.$on('showButton',function(event, args) {
+        $scope.showAddButton=args;
+    });
+});
 
 
 // This is a factory we use to defer to result of the POST to our API
@@ -61,15 +63,14 @@ productsApp.factory('createListFactory', function($http, $q) {
 // This factory will be used to allow different controllers to know which is the current product list
 productsApp.service('currentListFactory', function() {
     var currentProductList = '';
-
-        return {
-            getProductList: function () {
-                return currentProductList;
-            },
-            setProductList: function(value) {
-                currentProductList = value;
-            }
-        };
+    return {
+        getProductList: function () {
+            return currentProductList;
+        },
+        setProductList: function(value) {
+            currentProductList = value;
+        }
+    };
 });
 
 productsApp.controller('ProductListAddProductController', function($scope, $http, $location, currentListFactory){
@@ -99,6 +100,9 @@ productsApp.controller('ProductListAddProductController', function($scope, $http
 
 productsApp.controller('ProductListController', function($scope, $http, $routeParams, createListFactory, currentListFactory ){
     var currentProductList = '';
+
+    // show the Add Product buttton (inform the Main Controller that displays the menu)
+    $scope.$emit('showButton', true);
 
     // if loading an existing list then perform an http GET on the list to load it into the browser
     if($routeParams.productListID){
