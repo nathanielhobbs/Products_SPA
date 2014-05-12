@@ -16,3 +16,6 @@ The file structure is as follows:
 package.json            <!-- the npm configuration to install whatever depenedencies/models are needed for nodejs -->
 server.js               <!-- the node configuration file -->     
 README.md               <!-- the readme file -->
+
+
+upon cloning, make sure to run "npm install" from the main directory to install all the dependencies.
